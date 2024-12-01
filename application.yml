@@ -1,0 +1,55 @@
+# 端口
+server:
+  port: 8080
+
+# 数据源
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+#    url: jdbc:mysql:///travel?serverTimezone=UTC
+    url: jdbc:mysql://服务器ip:3306/travel?serverTimezone=UTC
+    username: root
+    password: root
+#    password: 1234
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+  # 打成jar包必须添加如下配置才能找到页面
+  thymeleaf:
+    # 文件类型是HTML类型
+    mode: HTML
+    # 不进行缓存
+    cache: false
+    # 存放的位置是在根路径下面额的templates
+    prefix: classpath:/templates/
+    suffix: .html
+
+# 配置mybatis-plus
+mybatis-plus:
+  global-config:
+    db-config:
+      # 主键生成策略为自增
+      id-type: auto
+  configuration:
+    # 关闭列名自动驼峰命名规则映射
+    map-underscore-to-camel-case: false
+    # 开启sql日志
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+# 日志格式
+logging:
+  pattern:
+    console: '%d{HH:mm:ss.SSS} %clr(%-5level) ---  [%-15thread] %cyan(%-50logger{50}):%msg%n'
+
+# 发送邮件的配置
+mail:
+  # 发件人地址
+  user: 2817902077@qq.com
+  #发件人密码
+  password: lkhzxc1314
+
+# 项目路径
+project:
+#  path: http://localhost
+  path: http://192.168.66.100
